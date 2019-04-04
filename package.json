@@ -6,10 +6,10 @@
   "scripts": {
     "build:setup": "mkdir -p dist/css && mkdir -p dist/js && mkdir -p assets/styles && mkdir -p assets/js && touch assets/styles/variables.styl && touch assets/styles/main.styl && touch assets/js/main.js",
     "build:css": "stylus -c -u autoprefixer-stylus assets/styles/main.styl -m -o dist/css/styles.min.css",
-    "build:jsprod": "webpack --mode production ./assets/js/main.js --output ./dist/js/main.js --module-bind js=babel-loader",
-    "build:jsdev": "webpack --mode development ./assets/js/main.js --output ./dist/js/main.js --module-bind js=babel-loader",
+    "build:jsprod": "webpack --mode production ./assets/js/main.js --presets --output ./dist/js/main.js --module-bind js=babel-loader",
+    "build:jsdev": "webpack --mode development ./assets/js/main.js --presets --output ./dist/js/main.js --module-bind js=babel-loader",
     "watch:css": "onchange 'assets/styles/**/*.styl' -- npm run build:css",
-    "watch:js": "onchange 'assets/js/**/*.js' -- npm run build:jsdev",
+    "watch:js": "onchange 'assets/js/**/*.js' -- npm run build:jsprod",
     "watch:all": "parallelshell 'npm run watch:css' 'npm run watch:js' 'npm run serve'",
     "serve": "browser-sync start --https ${https} --proxy ${url} --files 'dist/**/*.css, dist/**/*.js' -w",
     "postinstall": "npm run build:setup"
