@@ -11,7 +11,7 @@
     "watch:css": "onchange 'assets/styles/**/*.styl' -- npm run build:css",
     "watch:js": "onchange 'assets/js/**/*.js' -- npm run build:jsdev",
     "watch:all": "parallelshell 'npm run watch:css' 'npm run watch:js' 'npm run serve'",
-    "serve": "browser-sync start --https ${https} --proxy ${url} --files 'dist/**/*.css, dist/**/*.js' -w",
+    "serve": "browser-sync start --proxy ${url} --files 'dist/**/*.css, dist/**/*.js' -w",
     "postinstall": "npm run build:setup"
   },
   "author": "",
